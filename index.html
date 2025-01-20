@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Félix y Dayana</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600&display=swap');
+       
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #ffe6e6;
+            font-family: 'Montserrat', sans-serif;
+            position: relative;
+            padding-bottom: 40px;
+        }
+
+        h1 {
+            color: #ff4d4d;
+            text-align: center;
+            margin: 20px 0;
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-family: 'Dancing Script', cursive;
+        }
+
+        .photo-container {
+            position: relative;
+            margin: 20px 0;
+            max-width: 90%;
+        }
+
+        .photo {
+            width: 250px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            border: 5px solid white;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .date {
+            color: #333;
+            margin: 15px 0;
+            font-style: italic;
+            font-weight: 600;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .message {
+            text-align: center;
+            color: #333;
+            width: 80%;
+            max-width: 600px;
+            margin: 20px auto;
+            line-height: 1.8;
+            font-size: 1.2em;
+            font-weight: 400;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+        }
+
+        .heart {
+            position: fixed;
+            color: #ff4d4d;
+            font-size: 20px;
+            pointer-events: none;
+            z-index: 1000;
+        }
+
+        @keyframes falling {
+            from {
+                transform: translateY(-100vh);
+            }
+            to {
+                transform: translateY(100vh);
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #ffe6e6;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #ff4d4d;
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #ff3333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dayana Guadalupe </h1>
+   
+    <div class="photo-container">
+        <img src="999.jpg" alt="Félix y Dayana" class="photo">
+    </div>
+
+    <div class="date">13 julio 2021</div>
+
+    <div class="message">
+        Querida hermanita,
+
+Eres mi pequeña estrella, siempre iluminas mi vida con tu sonrisa y tu alegría. Aunque soy tu hermano mayor, siempre estaré aquí para protegerte, cuidarte y hacerte reír. Te quiero muchísimo.
+    </div>
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+            heart.style.animation = `falling ${heart.style.animationDuration} linear infinite`;
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
